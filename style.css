@@ -3,7 +3,12 @@
     
 }
 
-
+a{
+    color: gray;
+}
+a:hover{
+    color: gray;
+}
 
 body {
     margin: 0;
