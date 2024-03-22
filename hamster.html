@@ -1,58 +1,67 @@
 <html>
     <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
       <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="buttonStyle.css">
         <style>
             .detalis{color: pink;
                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 30px;}
-            body {
-              background-color:white }
-            h1.cat{ font-size: 100px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            #hamster{ font-size: 100px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color:pink;padding-left: 40%;padding-right: 20% ; background-image: url("background1.jpg"); 
              text-shadow: 0 0 10px rgb(241, 54, 85);} 
+             
             </style>
         
         <body>
-         <div class="containar">
+          <div class="container">
           <div class="Navigation">
             <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Pets Adoption</a></li>
-                <li><a href="#">Pets Store</a></li>
-                <li><a href="#">Veterinary Clinic</a></li>
-                <li><a href="#">Pets Rescue</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="aboutus.html">About Us</a></li>
+              <li><a href="contactus.html">Contact Us</a></li>
+              <li><a href="adoption.html">Pets Adoption</a></li>
+              <li><a href="petsstore.html">Pets Store</a></li>
+              <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+              <li><a href="petsRescue.html">Pets Rescue</a></li>
             </ul>
         </div>
-           <h1 class="cat">HAMSTER!</h1>  
+           <h1 id="hamster">HAMSTER!</h1>  
            <hr>
-           <form method="post" action = "">
-        
-                <p class="detalis">
-                 What kind of hamster would you like to adopt ?
-                <select name = "types" size="1" style="font-size: 25px;"> 
-                  <option> Dwarf Roborovski </option>
-                  <option> Campbell’s Dwarf Russian </option>
-                  <option> Syrian (Golden)  </option>
-                  <option> Dwarf Winter White Russian </option>
-                  <option> Chinese Hamster </option>
+           
+            <div class="row">
+              <div class="col">
+                <div class="card " style="width:200px; height: 350px; color: pink; background-color: black;">
+                  <img class="card-img-top" src="Dwarf Roborovski.jpg" alt="Dwarf Roborovski image">
+                    <div class="card-body">
+                    <h4 class="card-title"> Dwarf Roborovski</h4>
+                    <a href="confirmation.html" class="button" style="margin-top: 30px;">Choose&#x1F90D;</a>
+                      </div></div></div>
 
-                </select><br><br>
-          </p>
-             <p class="detalis">How many?
-                 <label style="color: rgb(0, 0, 0);font-size: 25px;"> Single <input type="radio" name="age" value="kitten"/>  </label>
-                 <label style="color: black;font-size: 25px;"> A couple <input type="radio" name="age" value="Adult"/>  </label>
-             </p><br><br>
-             <input type = "reset"  value = "Reset" style="color: pink; font-size: 25px;" />
-             <input type = "submit"  value = "Submit" style="color: pink; font-size: 25px;" />
+                <div class="col">
+                  <div class="card " style="width:200px; height: 350px; color: pink; background-color: black;">
+                    <img class="card-img-top" src="Campbell’s Dwarf Russian.jpg" alt="Campbell’s Dwarf Russian image">
+                      <div class="card-body">
+                      <h4 class="card-title" >Campbell’s Dwarf Russian</h4>
+                      <a href="confirmation.html" class="button"style="margin-top: 30px;">Choose&#x1F90D;</a>
+                        </div></div></div>
 
-            </form>
-            <hr>
+                <div class="col">
+                  <div class="card " style="width:200px; height: 350px; color: pink; background-color: black;">
+                    <img class="card-img-top" src="Syrian (Golden).jpg" alt="Syrian (Golden) image">
+                      <div class="card-body">
+                      <h4 class="card-title"> Syrian (Golden)</h4>
+                      <a href="confirmation.html" class="button" style="margin-top: 30px;">Choose&#x1F90D;</a>
+                      
+                        </div></div></div>
+                      
+            </div>  
+            <br><br><br><hr>
             <div class="container">
               <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
               <a href="aboutus.html">About Us</a><br /><br />
-              <a href="#">Contact Us</a>
+              <a href="contactus.html">Contact Us</a>
           </div>
             
          </div>
