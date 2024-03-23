@@ -4,60 +4,72 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <style>
-            h1.first{ background-image: url("background.png") ;
-            background-repeat:no-repeat ;font-size:130px; padding: 21%;
-             font-family: 'Times New Roman', Times, serif; color:dimgray; background-size: cover;
-            background-position: center;}
+            .details{
+                font-size: 20px; color: pink; font-family:'Courier New', Courier, monospace;
+            }
             
         </style>
         <body>
-            <p class="container">
+            <div class="container">
                 <div class="Navigation">
                 <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Pets Adoption</a></li>
-                    <li><a href="#">Pets Store</a></li>
-                    <li><a href="#">Veterinary Clinic</a></li>
-                    <li><a href="#">Pets Rescue</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="adoption.html">Pets Adoption</a></li>
+                    <li><a href="petsstore.html">Pets Store</a></li>
+                    <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+                    <li><a href="petsRescue.html">Pets Rescue</a></li>
                 </ul>
             </div>
-            <h1 class="first"> Pets Rescue</h1>
-            <p style="font-size:50px; margin-left: 400px;color:dimgray;
+            <h1 ><img src="rescue.png" alt="Pet rescue header"></h1>
+            <p style="font-size:50px; margin-left: 500px;color:dimgray;
             font-family: 'Times New Roman', Times, serif;">Rescue a pet!</p>
             <hr>
             <h4>Provide us with the following information:</h4>
             <hr>
-            <div class="row">
-                <div class='col'><form method="post" action="">
-                    <p>Name:
-                    <input type="text" name="name" value="Enter your name"></p>
-                    <p>Phone number:
-                        <input type="text" name="Phone number" value="Enter your phone number"></p>
-                    <p>City:
-                        <input type="text" name="City" value="Enter your city name"></p>
-                    <p>Address:
-                        <input type="text" name="Address" value="Enter your address"></p>
-                    <p>Extra details:</p> <textarea name = "Feedback" rows = "4" cols = "50">
-                        provide more information about your pet's situation please...
-                        </textarea>
-                    <p>Upload a picture of the pet: <input type="file" name="picture" accept="image/*"></p><br>
-                    <input type = "reset"  value = "Reset" style="color: pink" />
-                    <input type = "submit"  value = "Submit" style="color: pink" />
             
-                            
-                </form> </div>
-                <div class="col"> <img src="helppets.png" alt="picture of calender" width="500px" height="500px"></div>
-            </div>
+                <form method="post" action="">
+                    <p class="details">Name:
+                    <input type="text" name="name" placeholder="Enter your name" value=""></p>
+                    <p class="details">Phone number:
+                        <input type="text" name="Phone number" placeholder="Enter your phone number" value=""></p>
+                    <p class="details">City:
+                        <select name = "city" size="1" style="font-size: 25px;"> 
+                                  <option> Muscat </option>
+                                  <option> Rustaq </option>
+                                  <option> Sohar </option>
+                                  <option> Nizwa</option>
+                                  
+                                </select></p>
+                    <p class="details"> *How old is it?
+                       <input type="checkbox" name="new born" value="">New born
+                       <input type="checkbox" name="new born" value="">1-5 months
+                       <input type="checkbox" name="new born" value="">More than 5 months   </p>
+                    <p class="details">Address:
+                        <input type="text" name="Address" placeholder="Enter your address" value=""></p>
+                    <p class="details">Extra details: <textarea name = "Feedback" rows = "4" cols = "50">
+                    provide more information about your pet's situation please...
+                        </textarea></p>
+                    <p class="details">Upload a picture of the pet: <input type="file" name="picture" accept="image/*"></p><br>
+                    <input type="hidden" name="pet paradise" value="pets rescue">
+                    <img src="helppets.png" alt="picture of calender" width="500px" height="500px" class="rounded" style="margin-left: 300px;">
+                    <hr>
+                    <input type="button" value = "Back" class="details">
+                    <input type = "reset"  value = "Reset"  class="details" />
+                    <input type = "submit"  value = "Submit"  class="details" />
+            
+                         
+                </form> 
+               
             <hr>
-            <div class="container">
+           
                 <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
                 <a href="aboutus.html">About Us</a><br /><br />
-                <a href="#">Contact Us</a>
+                <a href="contactus.html">Contact Us</a>
             </div>
-            </p>         
+                 
         </body>
     </head>
 </html>
