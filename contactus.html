@@ -60,23 +60,16 @@
         </tr>
         </table>
         <br/><br/><br/>
-        <p class="container" style="font-weight:bolder; padding-left: 500px; font-size: 30px; color: #999999; font-family: Georgia, 'Times New Roman', Times, serif;">Extra Details</p>
-        <div style="padding-left: 300px;">
-        <table style="font-size:x-large; color: #999999; font-family: Georgia, 'Times New Roman', Times, serif; ">
-            <tr>
-                <th>Email</th>
-                <td>PetParadise@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Phone Number</th>
-                <td>22038466</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>Oman, Muscat, Sultan Qaboos University</td>
-            </tr>
-        </table>
-    </div>
+        <p class="container" style="font-weight:bolder; padding-left: 400px; font-size: 30px; color: #999999; font-family: Georgia, 'Times New Roman', Times, serif;">Employees contact information</p>
+        
+           <div style="padding-left: 450px;"> <input type="text" placeholder="Search by employee's name" size="30px" id="searchInput" style="border-radius: 10px;">
+            <button type="button" onclick="search()" style="border-radius: 10px; border-color: rgba(127, 255, 212, 0);background-color: #000000; color: white;"> Search</button>
+        </div>
+        <div style="padding-left: 400px;">
+            <br/>
+        <table id="employeestable" style="font-size:x-large; color: #999999; font-family: Georgia, 'Times New Roman', Times, serif;">
+            
+        </table></div>
         </div>
         <br />
         <hr class="container">
@@ -86,5 +79,52 @@
             <a href="contactus.html">Contact Us</a>
             <br /><br />
         </div>
+
+
+        <script>
+            function employee(name, phoneNumber, email, address){
+                this.name = name;
+                this.phoneNumber = phoneNumber;
+                this.email = email;
+                this.address = address;
+            }
+            var employees = [
+                new employee("Latifa", 98364765, "latifa33@gmail.com","Sohar"),
+                new employee("Leen", 74893660, "leenWork@gmail.com","Muscat"),
+                new employee("Moza", 92353623, "mozaWorkemail@gmail.com","Saham"),
+                new employee("Sultan", 729493757, "sultanclinic@gmail.com","Al Buraimi")
+            ]
+
+            function search() {
+            
+            var name = document.getElementById("searchInput").value.toLowerCase();
+            var generatedTable = document.getElementById("employeestable");
+            generatedTable.innerHTML = "";
+            var eventRow = generatedTable.insertRow();
+            var index = -1; // Initialize index as -1
+
+            for (var i = 0; i < employees.length; i++) {
+                if (name === employees[i].name.toLowerCase()) {
+                    index = i; 
+                    break; 
+                }
+            }
+            if (index !== -1) {
+                eventRow.innerHTML = "<th>Name</th><td>" + employees[index].name + "</td>";
+                var eventRow = generatedTable.insertRow();
+                eventRow.innerHTML = "<th>Phone Number</th><td>" + employees[index].phoneNumber + "</td>";
+                var eventRow = generatedTable.insertRow();
+                eventRow.innerHTML = "<th>Email</th><td>" + employees[index].email + "</td>";
+                var eventRow = generatedTable.insertRow();
+                eventRow.innerHTML = "<th>Address</th><td>" + employees[index].address + "</td>";
+            } else {
+                eventRow.innerHTML = "<td colspan='2'>No employee with this name</td>";
+            }
+            
+            }
+
+
+
+        </script>        
     </body>
 </html>
