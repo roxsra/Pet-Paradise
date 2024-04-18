@@ -1,0 +1,126 @@
+<html >
+   <head>
+    <title>Questionnaire page</title>
+    <link rel="stylesheet" href="style.css">
+      <style>
+        body {
+            font-family: Arial, sans-serif; background-color: pink;    
+            }
+        .container {
+            max-width: 700px; margin: 50px auto;background-color: white;padding: 30px;border-radius: 10px;
+            }
+        label {
+            display: block;
+            margin: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #cdc5c5;
+            border-radius: 4px;
+            
+        }
+        input[type="submit"] {
+            background-color: pink;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: gray;
+        }
+        input[type="reset"] {
+            background-color: pink;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        input[type="reset"]:hover {
+            background-color: gray;
+        }
+        
+     </style>
+    </head>
+  <body>
+    <div class="Navigation">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="adoption.html">Pets Adoption</a></li>
+            <li><a href="petsstore.html">Pets Store</a></li>
+            <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+            <li><a href="petsRescue.html">Pets Rescue</a></li>
+            <li><a href="Questionnaire.html">Questionnaire page</a></li>
+            <li><a href="calculation.html">Bill Calculator</a></li>
+            <li><a href="fun.html">Fun Page </a></li>
+        </ul>
+    </div>
+        <div class="container">
+        <h1 style="text-align: center;">Questionnaire</h1>
+        <form name="myForm" method="get" onsubmit="return ValidationForm()"action="https://httpbin.org/get" >
+            <label for="Name">Name:</label>
+            <input type="text" id="name" name="name" >
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">Male
+            <input type="radio" id="female" name="gender" value="female">Female
+            <label for="pets">Do you currently own any pets?
+            <input type="checkbox" id="pets" name="pets"> yes
+            <input type="checkbox" id="pets" name="pets"> no </label>
+            <label for="message">Any Additional Comments:</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+
+        <script>
+            // Function to do some Validation  
+            function ValidationForm(){
+                // Get inputs from the form
+                let name = document.forms["myForm"]["name"].value;
+                let email = document.forms["myForm"]["email"].value;
+                let gender = document.querySelector('input[name="gender"]:checked');
+                // Name validation
+                if (name === '') {//if user did not put their name it will show them a alert message  
+                    alert('Name is required.');
+                    document.getElementById('name').focus(); //focus on the input
+                    return false;
+                }
+                // Email validation
+                if(email.indexOf("@", 0) < 0) {//if email did not contain @ it is not correct
+                 alert("Please enter a valid e-mail address.");
+                 document.getElementById('email').focus();
+                    return false;
+                }     
+                if(email.indexOf(".", 0) < 0) {//if email did not contain . it is not correct
+                alert("Please enter a valid e-mail address.");
+                document.getElementById('email').focus();
+                    return false;
+                }
+                // Gender validation
+                if (!gender) {//if user did not select their gender it will show them a alert message
+                    alert('Please select your gender.');
+                    return false;
+                }
+                return true;//otherwise return true
+            }
+            </script>
+            <hr >
+            <div >
+                <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
+                <a href="aboutus.html">About Us</a><br /><br />
+                <a href="contactus.html">Contact Us</a>
+                <br /><br />
+            </div>
+    </body>
+</html>
