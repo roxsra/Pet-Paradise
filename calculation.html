@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>Bill Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: pink;
+        }
+        
+        /* Container styling */
+        .container {
+            max-width: 700px; margin: 50px auto;background-color: white;padding: 30px;border-radius: 10px;
+            }
+        
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        
+        /* Button styling */
+        button {
+            background-color: pink;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        /* Button hover effect */
+        button:hover {
+            background-color: gray;
+        }
+        
+        /* Result styling */
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="Navigation">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="adoption.html">Pets Adoption</a></li>
+            <li><a href="petsstore.html">Pets Store</a></li>
+            <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+            <li><a href="petsRescue.html">Pets Rescue</a></li>
+            <li><a href="Questionnaire.html">Questionnaire page</a></li>
+            <li><a href="calculation.html">Bill Calculator</a></li>
+            <li><a href="fun.html">Fun Page </a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h1 style="text-align: center;">Bill Calculator</h1>
+        <p>This page calculates the total cost of items purchased and applies discounts based on certain conditions.</p>
+        <form id="billForm">
+            <label for="numberOfItems">Number of Items:</label>
+            <input type="number" id="numberOfItems" name="numberOfItems" value="0" ><br><br>
+            
+            <label for="totalPrice">Total Price of Items (OMR):</label>
+            <input type="number" id="totalPrice" name="totalPrice" value="0" ><br><br>
+            
+            <label for="age">Your Age:</label>
+            <input type="number" id="age" name="age" value="0" ><br><br>
+
+            <label for="studentCheckbox">Are you a student in SQU?</label>
+            <input type="checkbox" id="studentCheckbox" name="studentCheckbox"><br><br>
+            
+            <button type="button" onclick="calculateBill()">Calculate</button>
+        </form>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Function to calculate the bill
+        function calculateBill() {
+            // Get inputs from the form
+            var numberOfItems = parseInt(document.getElementById('numberOfItems').value);
+            var totalPrice = parseFloat(document.getElementById('totalPrice').value);
+            var age = parseInt(document.getElementById('age').value);
+            var isStudent = document.getElementById('studentCheckbox').checked;
+            
+            // set total cost to total first 
+            var total = totalPrice;
+            
+            // Apply discounts
+            if (numberOfItems > 3) {
+                total -= (total * 0.05); // for more than 3 items 5% discount
+            }
+            
+            if (isStudent) {
+                total -= (total * 0.05); //for students in SQU 5% discount
+            }
+            
+            if (age >= 60) {
+                total -= (total * 0.05); //for customers aged 60 and above 5% discount
+            }
+            
+            // Display the result
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<h2>Final Bill</h2>' +'<p>Total Cost: '+ total +' OMR' +  '</p>';
+        }
+    </script>
+    <hr >
+    <div >
+        <a href="index.html"><img src="logo.png" alt="logo" ></a><br /><br />
+        <a href="aboutus.html">About Us</a><br /><br />
+        <a href="contactus.html">Contact Us</a>
+        <br /><br />
+    </div>
+</body>
+</html>
