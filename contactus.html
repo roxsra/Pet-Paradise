@@ -85,49 +85,63 @@
 
 
         <script>
+            // Define a constructor function for creating employee objects
             function employee(name, phoneNumber, email, address){
                 this.name = name;
                 this.phoneNumber = phoneNumber;
                 this.email = email;
                 this.address = address;
             }
+        
+            // Array to store employee objects
             var employees = [
                 new employee("Latifa", 98364765, "latifa33@gmail.com","Sohar"),
                 new employee("Leen", 74893660, "leenWork@gmail.com","Muscat"),
                 new employee("Moza", 92353623, "mozaWorkemail@gmail.com","Saham"),
                 new employee("Sultan", 729493757, "sultanclinic@gmail.com","Al Buraimi")
-            ]
-
+            ];
+        
+            // Function to search for an employee by name
             function search() {
-            
-            var name = document.getElementById("searchInput").value.toLowerCase();
-            var generatedTable = document.getElementById("employeestable");
-            generatedTable.innerHTML = "";
-            var eventRow = generatedTable.insertRow();
-            var index = -1; // Initialize index as -1
-
-            for (var i = 0; i < employees.length; i++) {
-                if (name === employees[i].name.toLowerCase()) {
-                    index = i; 
-                    break; 
+                // Get the name entered by the user from the search input field
+                var name = document.getElementById("searchInput").value.toLowerCase();
+        
+                // Get the table element where search results will be displayed
+                var generatedTable = document.getElementById("employeestable");
+        
+                // Clear the table before displaying search results
+                generatedTable.innerHTML = "";
+        
+                // Create a new row for displaying search results
+                var eventRow = generatedTable.insertRow();
+        
+                // Initialize index as -1
+                var index = -1;
+        
+                // Loop through the employees array to find a match for the entered name
+                for (var i = 0; i < employees.length; i++) {
+                    if (name === employees[i].name.toLowerCase()) {
+                        index = i; // Store the index of the matching employee
+                        break; // Exit the loop once a match is found
+                    }
+                }
+        
+                // Check if a match was found
+                if (index !== -1) {
+                    // Display the details of the matching employee in the table
+                    eventRow.innerHTML = "<th>Name</th><td>" + employees[index].name + "</td>";
+                    var eventRow = generatedTable.insertRow();
+                    eventRow.innerHTML = "<th>Phone Number</th><td>" + employees[index].phoneNumber + "</td>";
+                    var eventRow = generatedTable.insertRow();
+                    eventRow.innerHTML = "<th>Email</th><td>" + employees[index].email + "</td>";
+                    var eventRow = generatedTable.insertRow();
+                    eventRow.innerHTML = "<th>Address</th><td>" + employees[index].address + "</td>";
+                } else {
+                    // If no match was found, display a message indicating so
+                    eventRow.innerHTML = "<td colspan='2'>No employee with this name</td>";
                 }
             }
-            if (index !== -1) {
-                eventRow.innerHTML = "<th>Name</th><td>" + employees[index].name + "</td>";
-                var eventRow = generatedTable.insertRow();
-                eventRow.innerHTML = "<th>Phone Number</th><td>" + employees[index].phoneNumber + "</td>";
-                var eventRow = generatedTable.insertRow();
-                eventRow.innerHTML = "<th>Email</th><td>" + employees[index].email + "</td>";
-                var eventRow = generatedTable.insertRow();
-                eventRow.innerHTML = "<th>Address</th><td>" + employees[index].address + "</td>";
-            } else {
-                eventRow.innerHTML = "<td colspan='2'>No employee with this name</td>";
-            }
-            
-            }
-
-
-
-        </script>        
+        </script>
+                
     </body>
 </html>

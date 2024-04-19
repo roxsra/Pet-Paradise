@@ -112,141 +112,169 @@
              </div>
              
              <script>
-              function Appointment(name, phoneNumber, age, password, petName, petAge, appointmentDate, extraDetails) {
-                  this.name = name;
-                  this.phoneNumber = phoneNumber;
-                  this.age = age;
-                  this.password = password;
-                  this.petName = petName;
-                  this.petAge = petAge;
-                  this.appointmentDate = appointmentDate;
-                  this.extraDetails = extraDetails;
-              }
-
-              function Pet(name, age) {
-                this.name = name;
-                this.age = age;
-              }
-
-              var pets =[
-                new Pet("Max", 3),
-                new Pet("Bella", 5),
-                new Pet("Charlie", 2),
-                new Pet("Lucy", 7)
-            ];
-
-              var appointments = [
-                new Appointment("Maryam", "1234567890", 35, "password1", pets[0].name, pets[0].age, "2024-04-15", "Regular checkup"),
-                new Appointment("Furat", "9876598010", 28, "password2", pets[1].name, pets[1].age, "2024-04-20", "Vaccination"),
-                new Appointment("Turki", "5543443333", 40, "password3", pets[2].name, pets[2].age, "2024-04-25", "Dental cleaning"),
-                new Appointment("Tariq", "1112223576", 45, "password4", pets[3].name, pets[3].age, "2024-04-30", "Grooming")
-            ];
-
-            function generateCalendar() {
-            var calendar = document.getElementById("appointmentCalendar");
-            var daysInMonth = 31; 
-
-            calendar.innerHTML = "";
-
-            var headerRow = calendar.insertRow();
-            var d = new Date();
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            headerRow.innerHTML = "<th colspan='7' class='month'>"+ months[d.getMonth()]+" "+d.getFullYear()+"</th>";
-
-            var daysRow = calendar.insertRow();
-            var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-            for (var i = 0; i < daysOfWeek.length; i++) {
-                daysRow.innerHTML += "<th class='day'>" + daysOfWeek[i] + "</th>";
-            }
-
+                // Constructor function for creating Appointment objects
+                function Appointment(name, phoneNumber, age, password, petName, petAge, appointmentDate, extraDetails) {
+                    this.name = name;
+                    this.phoneNumber = phoneNumber;
+                    this.age = age;
+                    this.password = password;
+                    this.petName = petName;
+                    this.petAge = petAge;
+                    this.appointmentDate = appointmentDate;
+                    this.extraDetails = extraDetails;
+                }
             
-            var currentDay = 1;
-            for (var row = 0; row < 5; row++) {
-                var newRow = calendar.insertRow();
-                for (var col = 0; col < 7; col++) {
-                    if (currentDay <= daysInMonth) {
-                        var cellContent = "";
-                        appointments.forEach(function(appointment) {
-                            var appointmentDate = new Date(appointment.appointmentDate);
-                            if (appointmentDate.getDate() === currentDay && appointmentDate.getMonth() === d.getMonth()) {
-                                cellContent += "<div>" + appointment.petName + "</div>";
+                // Constructor function for creating Pet objects
+                function Pet(name, age) {
+                    this.name = name;
+                    this.age = age;
+                }
+            
+                // Array of Pet objects
+                var pets = [
+                    new Pet("Max", 3),
+                    new Pet("Bella", 5),
+                    new Pet("Charlie", 2),
+                    new Pet("Lucy", 7)
+                ];
+            
+                // Array of Appointment objects
+                var appointments = [
+                    new Appointment("Maryam", "1234567890", 35, "password1", pets[0].name, pets[0].age, "2024-04-15", "Regular checkup"),
+                    new Appointment("Furat", "9876598010", 28, "password2", pets[1].name, pets[1].age, "2024-04-20", "Vaccination"),
+                    new Appointment("Turki", "5543443333", 40, "password3", pets[2].name, pets[2].age, "2024-04-25", "Dental cleaning"),
+                    new Appointment("Tariq", "1112223576", 45, "password4", pets[3].name, pets[3].age, "2024-04-30", "Grooming")
+                ];
+            
+                // Function to generate the appointment calendar
+                function generateCalendar() {
+                    // Get the table element where the calendar will be displayed
+                    var calendar = document.getElementById("appointmentCalendar");
+            
+                    // Define the number of days in the month
+                    var daysInMonth = 31;
+            
+                    // Clear the calendar before generating new content
+                    calendar.innerHTML = "";
+            
+                    // Create header row for the month and year
+                    var headerRow = calendar.insertRow();
+                    var d = new Date();
+                    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                    headerRow.innerHTML = "<th colspan='7' class='month'>" + months[d.getMonth()] + " " + d.getFullYear() + "</th>";
+            
+                    // Create row for days of the week
+                    var daysRow = calendar.insertRow();
+                    var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                    for (var i = 0; i < daysOfWeek.length; i++) {
+                        daysRow.innerHTML += "<th class='day'>" + daysOfWeek[i] + "</th>";
+                    }
+            
+                    // Initialize currentDay variable to 1
+                    var currentDay = 1;
+            
+                    // Loop to generate calendar rows and cells
+                    for (var row = 0; row < 5; row++) {
+                        var newRow = calendar.insertRow();
+                        for (var col = 0; col < 7; col++) {
+                            if (currentDay <= daysInMonth) {
+                                var cellContent = "";
+                                // Check appointments for the current day
+                                appointments.forEach(function(appointment) {
+                                    var appointmentDate = new Date(appointment.appointmentDate);
+                                    if (appointmentDate.getDate() === currentDay && appointmentDate.getMonth() === d.getMonth()) {
+                                        cellContent += "<div>" + appointment.petName + "</div>";
+                                    }
+                                });
+                                // Add cell to the row with day number and appointment details
+                                newRow.innerHTML += "<td>" + currentDay + cellContent + "</td>";
+                                currentDay++;
+                            } else {
+                                // Add empty cell if the month has fewer than 31 days
+                                newRow.innerHTML += "<td></td>";
                             }
+                        }
+                    }
+            
+                    // Add row for event display (search results)
+                    var eventRow = calendar.insertRow();
+                    eventRow.innerHTML = "<td colspan='7' class='event' style='background-color: white; color: black;'>Search Result will appear here!</td>";
+                }
+            
+                // Event listener for form submission
+                document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent default form submission behavior
+                    var formData = new FormData(event.target);
+                    var appointmentData = {};
+                    formData.forEach(function(value, key) {
+                        appointmentData[key] = value;
+                    });
+            
+                    // Create a new Appointment object with form data
+                    var appointment = new Appointment(
+                        appointmentData["name"],
+                        appointmentData["phoneNumber"],
+                        appointmentData["age"],
+                        appointmentData["password"],
+                        appointmentData["petName"],
+                        appointmentData["petAge"],
+                        appointmentData["appointmentDate"],
+                        appointmentData["extraDetails"]
+                    );
+            
+                    // Add the new appointment to the appointments array
+                    appointments.push(appointment);
+            
+                    // Reset the form
+                    event.target.reset();
+            
+                    // Generate the updated calendar
+                    generateCalendar();
+                });
+            
+                // Function to filter appointments based on search input
+                function filterAppointments() {
+                    var searchInput = document.getElementById("searchInput").value.toLowerCase();
+                    var filteredAppointments = appointments.filter(function(appointment) {
+                        return appointment.name.toLowerCase().includes(searchInput) ||
+                            appointment.petName.toLowerCase().includes(searchInput);
+                    });
+            
+                    // Update the calendar with filtered appointments
+                    updateCalendar(filteredAppointments);
+                }
+            
+                // Function to update calendar display with filtered appointments
+                function updateCalendar(filteredAppointments) {
+                    var calendar = document.getElementById("appointmentCalendar");
+                    var eventRow = calendar.querySelector(".event");
+                    eventRow.innerHTML = ""; // Clear previous search results
+                    if (filteredAppointments.length > 0) {
+                        // Display filtered appointments
+                        filteredAppointments.forEach(function(appointment) {
+                            eventRow.innerHTML += "<td colspan='7'>" + appointment.name + " - " + appointment.petName + " (" + appointment.appointmentDate + ")" + " - " + appointment.phoneNumber + "</td>";
                         });
-                        newRow.innerHTML += "<td>" + currentDay + cellContent + "</td>";
-                        currentDay++;
                     } else {
-                        newRow.innerHTML += "<td></td>";
+                        // Display message if no appointments found
+                        eventRow.innerHTML = "No appointments found";
                     }
                 }
-            }
-
             
-            var eventRow = calendar.insertRow();
-            eventRow.innerHTML = "<td colspan='7' class='event' style='background-color: white; color: black;'>Search Result will appear here!</td>";
-        }
-
-        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
-            
-            event.preventDefault();
-            var formData = new FormData(event.target);
-            var appointmentData = {};
-            formData.forEach(function(value, key) {
-                appointmentData[key] = value;
-            });
-
-            var appointment = new Appointment(
-                appointmentData["name"],
-                appointmentData["phoneNumber"],
-                appointmentData["age"],
-                appointmentData["password"],
-                appointmentData["petName"],
-                appointmentData["petAge"],
-                appointmentData["appointmentDate"],
-                appointmentData["extraDetails"]
-            );
-
-            appointments.push(appointment);
-
-            event.target.reset();
-
-            generateCalendar();
-        });
-
-
-        function filterAppointments() {
-            var searchInput = document.getElementById("searchInput").value.toLowerCase();
-            var filteredAppointments = appointments.filter(function(appointment) {
-                return appointment.name.toLowerCase().includes(searchInput) ||
-                       appointment.petName.toLowerCase().includes(searchInput);
-            });
-
-            updateCalendar(filteredAppointments);
-        }
-
-        function updateCalendar(filteredAppointments) {
-            var calendar = document.getElementById("appointmentCalendar");
-            var eventRow = calendar.querySelector(".event");
-            eventRow.innerHTML = ""; 
-            if (filteredAppointments.length > 0) {
-                
-                filteredAppointments.forEach(function(appointment) {
-                    eventRow.innerHTML += "<td colspan='7'>" + appointment.name + " - " + appointment.petName + " (" + appointment.appointmentDate + ")" +" - "+appointment.phoneNumber+"</td>";
+                // Event listener for loading the page
+                window.addEventListener("load", function() {
+                    // Generate the initial calendar display
+                    generateCalendar();
                 });
-            } else {
-                eventRow.innerHTML = "No appointments found";
-            }
-        }
-       
-        window.addEventListener("load", function() {
-            generateCalendar();
-        });
-
-        document.getElementById("searchInput").addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                filterAppointments();
-            }
-        });
-             </script>
+            
+                // Event listener for search input field
+                document.getElementById("searchInput").addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") {
+                        // Trigger search when Enter key is pressed
+                        filterAppointments();
+                    }
+                });
+            </script>
+            
         </body>
     </head>
 </html>

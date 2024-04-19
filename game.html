@@ -79,49 +79,71 @@
     </div>
 
     <script>
-        var Indexr; 
-
+        var Indexr; // Variable to store the index of the chosen card
+    
+        // Function to start the game
         function start(){
+            // Clear the game area and reset the elements
             document.getElementById("game").innerHTML = "<div class='container' id='instructions'></div> <div id='guessbox'></div> <div id='check'></div> <div id='card'></div>";
+    
+            // Array of card images
             var cards = [
                 "<img src='catcard.png'></img>",
                 "<img src='dogcard.png'></img>",
                 "<img src='hamstercard.png'></img>"
             ];
+    
+            // Array of pet names corresponding to the cards
             var pets = [
                 "cat",
                 "dog",
                 "hamster"
             ];
-            
-            Indexr = Math.floor(Math.random() * cards.length); // Assign a value to Indexr
+    
+            // Choose a random index for the card
+            Indexr = Math.floor(Math.random() * cards.length);
+    
+            // Hide the start button
             document.getElementById("startbtn").style.display = 'none';
+    
+            // Display the selected card
             document.getElementById("card").innerHTML = cards[Indexr];
+    
+            // Display instructions for the game
             document.getElementById("instructions").innerHTML = "Guess The Pet Name";
+    
+            // Display input box for user's guess
             document.getElementById("guessbox").innerHTML = "<input id='gbox' type='text' class='form-control' placeholder='Enter your Guess here 🪄' style='width: 320px; color: #000000; '>";
+    
+            // Display button to check the guess
             document.getElementById("check").innerHTML = "<button id='checkbtn' type='submit' class='btn btn-outline-dark container' style='width: 150px; margin-left: 450px; font-size: larger; font-family: Georgia; font-weight: bolder;' onclick='checking()'>Check Your Guess</button>";
         }
-
+    
+        // Function to check the user's guess
         function checking(){
+            // Get the user's guess from the input box
             var guessed = document.getElementById("gbox").value;
-            var pets = ["cat", "dog", "hamster"]; 
+    
+            // Array of pet names
+            var pets = ["cat", "dog", "hamster"];
+    
+            // Array of winning card images
             var win = [
                 "src='catwin.png'",
                 "src='dogwin.png'",
                 "src='hamsterwin.png'"
             ];
+    
+            // Check if the guess is correct
             if(guessed.toLowerCase() == pets[Indexr]){
+                // If correct, display the winning image and option to play again
                 document.getElementById("game").innerHTML = "<img "+win[Indexr]+"></img> <button id='playagain' type='submit' class='btn btn-outline-dark container' style='width: 150px; margin-left: 50px; font-size: larger; font-family: Georgia; font-weight: bolder;' onclick='start()'>Collect The Rest Of The Cards!</button> <p id='note' class='container' style='padding-left: 480px; font-size: 15px; color: #000000; font-family: Georgia; font-weight: bolder;'>*You Can Get Duplicate Cards 🤭*</p>";
-                
-
-            }else{
+            } else {
+                // If incorrect, prompt the user to try again
                 alert("Oops! Wrong Guess, Try Again 🤓");
             }
-            
         }
-
-
-
     </script>
+    
 </body>
 </html>
