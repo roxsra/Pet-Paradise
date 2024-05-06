@@ -82,40 +82,7 @@
             <input type="submit" value="Submit">
         </form>
         </div>
-
-        <script>
-            // Function to do some Validation  
-            function ValidationForm(){
-                // Get inputs from the form
-                let name = document.forms["myForm"]["name"].value;
-                let email = document.forms["myForm"]["email"].value;
-                let gender = document.querySelector('input[name="gender"]:checked');
-                // Name validation
-                if (name === '') {//if user did not put their name it will show them a alert message  
-                    alert('Name is required.');
-                    document.getElementById('name').focus(); //focus on the input
-                    return false;
-                }
-                // Email validation
-                if(email.indexOf("@", 0) < 0) {//if email did not contain @ it is not correct
-                 alert("Please enter a valid e-mail address.");
-                 document.getElementById('email').focus();
-                    return false;
-                }     
-                if(email.indexOf(".", 0) < 0) {//if email did not contain . it is not correct
-                alert("Please enter a valid e-mail address.");
-                document.getElementById('email').focus();
-                    return false;
-                }
-                // Gender validation
-                if (!gender) {//if user did not select their gender it will show them a alert message
-                    alert('Please select your gender.');
-                    return false;
-                }
-                return true;//otherwise return true
-            }
-            </script>
-            
+    
             <div >
                 <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
                 <a href="aboutus.html">About Us</a><br /><br />
