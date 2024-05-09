@@ -7,13 +7,12 @@
         <style>
             .details{
                 font-size: 20px; color: pink; font-family:'Courier New', Courier, monospace;
-                
             }
             
         </style>
         <body>
-            <div>
-                <div class="Navigation">
+            <div class="container">
+                <div class="Navigation"  >
                 <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -39,7 +38,7 @@
                     <p class="details">Name:
                     <input type="text" name="name" placeholder="Enter your name" value=""></p>
                     <p class="details">Phone number:
-                        <input type="text" name="Phone_number" placeholder="Enter your phone number" value=""></p>
+                        <input type="text" name="Phone number" placeholder="Enter your phone number" value=""></p>
                     <p class="details">City:
                         <select name = "city" size="1" style="font-size: 25px;"> 
                                   <option value='Muscat'> Muscat </option>
@@ -49,9 +48,9 @@
                                   
                                 </select></p>
                     <p class="details"> *How old is it?
-                       <input type="checkbox" name="age" value="new born" >New born
-                       <input type="checkbox" name="age" value="1-5 months" >1-5 months
-                       <input type="checkbox" name="age" value="More than 5 months" >More than 5 months </p>
+                       <input type="checkbox" name="data" value="new born" >New born
+                       <input type="checkbox" name="data" value="1-5 months" >1-5 months
+                       <input type="checkbox" name="data" value="More than 5 months" >More than 5 months   </p>
                     <p class="details">Address:
                         <input type="text" name="Address" placeholder="Enter your address" value=""></p>
                     <p class="details">Extra details: <textarea name = "Feedback" rows = "4" cols = "50">
@@ -59,7 +58,7 @@
                         </textarea></p>
                     <p class="details">Upload a picture of the pet: <input type="file" name="picture" accept="image/*"></p><br>
                     <input type="hidden" name="pet paradise" value="pets rescue">
-                    <img src="helppets.png" alt="picture of calender" class="rounded" style="margin-left: 150px;">
+                    <img src="helppets.png" alt="picture of calender" class="rounded" style="margin-left: 150px; width: 400px; height:400px ;">
                    <br/><br/>
                     <input type = "reset"  value = "Reset"  class="details" />
                     <input type = "submit"  value = "Submit"  class="details" />
