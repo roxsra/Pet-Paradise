@@ -1,5 +1,7 @@
 <html>
     <head>
+    <title>Questionnaire Information</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         table {
             width: 100%;
@@ -25,6 +27,21 @@
     </style>
     </head>
     <body>
+    <div class="Navigation">
+        <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="adoption.html">Pets Adoption</a></li>
+            <li><a href="petsstore.html">Pets Store</a></li>
+            <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+            <li><a href="petsRescue.html">Pets Rescue</a></li>
+            <li><a href="Questionnaire.html">Questionnaire page</a></li>
+            <li><a href="calculation.html">Bill Calculator</a></li>
+            <li><a href="fun.html">Fun Page </a></li>
+        </ul>
+    </div>
 <?php 
    $sname = "localhost";
    $user = "root";
@@ -36,9 +53,7 @@
    if (!$conn) {
     die("Connection failed: ". 
     mysqli_connect_error());
-
    }
-   echo "Connected successfully";
    //read all rows
    $sql = "SELECT * FROM questionnaire";
    $result = mysqli_query($conn,$sql);
@@ -84,6 +99,7 @@
    
    // Function to display table format of the content
    function displayTable($petsArray) {
+       echo " <h2 class='heading'>Your Information</h2>";
        echo "<table border='1'>";
        echo "<tr><th>Name</th><th>Email</th><th>Gender</th><th>Owns Pets</th><th>Message</th></tr>";
        foreach ($petsArray as $pet) {
@@ -113,7 +129,7 @@
    }
 ?>
 <?php
-   echo "<h1 class='heading'>Your record inserted </h1>";
+   echo "<h1 class='heading'>All records appear here</h1>";
    //read data of each row 
    echo "<table border='1'>";
    echo "<tr><th>Id</th><th>Name</th><th>Email</th><th>Gender</th><th>Owns Pets</th><th>Message</th></tr>";
@@ -130,5 +146,11 @@
    } echo"</table>";
     
    ?>
+    <div >
+                <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
+                <a href="aboutus.html">About Us</a><br /><br />
+                <a href="contactus.html">Contact Us</a>
+                <br /><br />
+            </div>
    </body>
    </html>
