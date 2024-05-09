@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="style.css">
     <title>Pets Rescue Information</title>
     <style>
-        /* Add your CSS styles here */
-        table {
+       table {
             width: 100%;
             border-collapse: collapse;
         }
@@ -15,20 +15,46 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        .abt{ background-color: gray;
-            color : darkred;
+        .abt {
+            background-color: pink;
+            color: #fff;
             padding: 5px 30px;
-
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
         }
-        .abt:hover{
-            background-color:darkred ;
-            color : white;
-
+        .abt:hover {
+            background-color: #ff66b2;
         }
+        .h2{
+            color: pink;
+            text-align: center;
+            
+        }
+       
     </style>
 </head>
 <body>
-    <h1>Pets Rescue Information</h1>
+<
+                <div class="Navigation"  >
+                <a href="index.html"><img src="logo.png" alt="Logo" class="logo" ></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="adoption.html">Pets Adoption</a></li>
+                    <li><a href="petsstore.html">Pets Store</a></li>
+                    <li><a href="veterinaryclinic.html">Veterinary Clinic</a></li>
+                    <li><a href="petsRescue.html">Pets Rescue</a></li>
+                    <li><a href="Questionnaire.html">Questionnaire page</a></li>
+            <li><a href="calculation.html">Bill Calculator</a></li>
+            <li><a href="game.html">Fun Page </a></li>
+                </ul>
+            </div>
+            <div class="container">
+            <h1><img src="rescue.png" alt="Pet rescue header"></h1>
+            <br>
+            <h2>Your Pets Rescue Information</h2>
 
     <?php
     // Check if form is submitted
@@ -40,12 +66,8 @@
         $age = $_POST['age'];
         $address = $_POST['Address'];
         $extra_details = $_POST['Feedback'];
-        
-
-        
-
+        echo "<script>alert('Information submitted.')</script>";
         // Display the received information using XHTML elements
-        echo "<h2>Rescue Information:</h2>";
         echo "<table>";
         echo "<tr><th>Field</th><th>Value</th></tr>";
         echo "<tr><td>Name</td><td>$name</td></tr>";
@@ -57,7 +79,7 @@
         echo "</table>";
     } else {
         // If form is not submitted, display a message
-        echo "<p>No information submitted.</p>";
+        echo "<script>alert('No information submitted.')</script>";
     }
     ?>
 <?php
@@ -71,11 +93,10 @@ $conn = new mysqli($sname, $user, $pass,$dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
-$sql="select * from rescue";
+$sql = "SELECT * FROM rescue";
 $result = mysqli_query($conn, $sql);
-$noR = mysqli_num_rows($result); //no of rows
-print "<br/>There are $noR pets rescue in the database<br/>";
+$noR = mysqli_num_rows($result); //numners of rows
+print "<h2>You can delete records here</h2>";
 ?>
 <table border="2">
     <tr><th>Name</th><th>Phone number</th>
@@ -102,6 +123,11 @@ mysqli_close($conn);
 </table>
 
     
-
+<div >
+                <a href="index.html"><img src="logo.png" alt="logo"></a><br /><br />
+                <a href="aboutus.html">About Us</a><br /><br />
+                <a href="contactus.html">Contact Us</a>
+                <br /><br />
+            </div>
 </body>
 </html>
